@@ -1,15 +1,16 @@
-{
-  "name": "my-app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "postinstall": "prisma generate"
+const fs = require('fs');
+const pkg = {
+  name: "my-app",
+  version: "0.1.0",
+  private: true,
+  scripts: {
+    dev: "next dev",
+    build: "next build",
+    start: "next start",
+    lint: "eslint",
+    postinstall: "prisma generate"
   },
-  "dependencies": {
+  dependencies: {
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "@supabase/ssr": "^0.12.3",
@@ -21,7 +22,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
-  "devDependencies": {
+  devDependencies: {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -31,4 +32,6 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   }
-}
+};
+fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2), 'utf8');
+console.log('Done!');
