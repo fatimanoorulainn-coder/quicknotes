@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "QuickNotes",
+  "version": "1.0",
+  "description": "View and add notes from anywhere",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "QuickNotes"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://quicknotes-opal.vercel.app/*"]
+}

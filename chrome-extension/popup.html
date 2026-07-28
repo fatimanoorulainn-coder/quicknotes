@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { width: 320px; font-family: sans-serif; margin: 0; background: #f9fafb; }
+    .header { background: #000; color: #fff; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+    .header h1 { margin: 0; font-size: 15px; }
+    .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; }
+    .section { padding: 12px 16px; }
+    input, textarea { width: 100%; box-sizing: border-box; border: 1px solid #d1d5db; border-radius: 8px; padding: 8px 10px; font-size: 13px; margin-bottom: 8px; }
+    textarea { height: 70px; resize: none; }
+    button { width: 100%; background: #000; color: #fff; border: none; border-radius: 8px; padding: 9px; font-size: 13px; cursor: pointer; }
+    button:hover { background: #333; }
+    .note { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
+    .note-title { font-weight: 600; font-size: 13px; color: #111; }
+    .note-content { font-size: 12px; color: #6b7280; margin-top: 4px; }
+    .status { font-size: 12px; color: #22c55e; text-align: center; padding: 4px; }
+    .error { font-size: 12px; color: #ef4444; text-align: center; padding: 4px; }
+    .login-msg { font-size: 12px; color: #6b7280; text-align: center; padding: 16px; }
+    .tabs { display: flex; border-bottom: 1px solid #e5e7eb; }
+    .tab { flex: 1; padding: 8px; text-align: center; font-size: 12px; cursor: pointer; color: #6b7280; }
+    .tab.active { color: #000; border-bottom: 2px solid #000; font-weight: 600; }
+    .notes-list { max-height: 200px; overflow-y: auto; padding: 12px 16px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>QuickNotes</h1>
+    <div class="dot"></div>
+  </div>
+  <div class="tabs">
+    <div class="tab active" id="tab-view" onclick="showTab('view')">My Notes</div>
+    <div class="tab" id="tab-add" onclick="showTab('add')">Add Note</div>
+  </div>
+  <div id="view-section">
+    <div class="notes-list" id="notes-list">
+      <p class="login-msg">Loading...</p>
+    </div>
+  </div>
+  <div id="add-section" style="display:none">
+    <div class="section">
+      <input type="text" id="title" placeholder="Note title..." />
+      <textarea id="content" placeholder="Note content..."></textarea>
+      <button onclick="addNote()">Add Note</button>
+      <div id="status"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
